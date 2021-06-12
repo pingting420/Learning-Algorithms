@@ -1,0 +1,22 @@
+#Intertive
+#need to add a dummy node, as temp node
+def reverseList(head: ListNode):
+    dummy = ListNode()
+    dummy.next = head
+    while(head != None and head.next != None):
+        dummy_next = dummy.next
+        temp = head.next
+        dummy.next, head.next, temp.next = temp, temp.next, dummy_next
+    return dummy.next
+    
+
+#Recursive
+def reverseList(head):
+    #not equal to none
+    if not head or not head.next:
+        return head
+    p = reverseList(head.next)
+    head.next.next = head
+    head.next = None
+    return p
+
