@@ -1,6 +1,4 @@
 def implement(haystack, needle):
-    lenhaystack = len(haystack)
-    lenneedle = len(needle)
     if len(needle) == 0:
             return 0
     if needle in haystack:

@@ -42,3 +42,25 @@ def isValid2(s):
             return False
     
     return not stack
+
+def isValid3(s):
+    stack=[]
+    for c in s:
+        if c in ["{","[","("]:
+            stack.append(c) #using stack function
+        elif c == ")" and stack[-1]=="(":
+            stack.pop()
+        elif c == "}" and stack[-1] == "}":
+            stack.pop()
+        elif c == "]" and stack[-1] == "]":
+            stack.pop()
+        else:
+            return False
+    return not stack
+
+def isValid4(s):
+    while "()" in s or "{}" in s or "[]" in s:
+            s = s.replace('{}','')
+            s = s.replace('[]','')
+            s = s.replace('()','')
+    return s == ''
