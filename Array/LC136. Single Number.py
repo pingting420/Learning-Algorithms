@@ -12,3 +12,14 @@ def singleNumber2(nums):
         count1 = nums.count(i)
         if count1 == 1:
             return i
+
+#Solution3
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        res = 0
+        for i in nums:
+            res = res ^ i
+        return res
+        
+
+        
