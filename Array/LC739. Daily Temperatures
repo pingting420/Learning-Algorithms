@@ -1,0 +1,13 @@
+def dailyTemperatures(self, temperatures):
+        #the num in the stack all the index
+        length = len(temperatures)#the length of the num
+        ans = [0] * length #to have a ans = [0,0,0,0,0....]
+        stack = []#to store the index
+        for i in range(length):#traverse the num in length
+            temperature = temperatures[i]
+            while stack and temperature > temperatures[stack[-1]]:#if stack empty and later bigger than before
+                prev_index = stack.pop()#pop the before and give the num to the prev_index
+                ans[prev_index] = i-prev_index#calculate the index
+            stack.append(i)#if not continue to append the i
+        return ans
+        
