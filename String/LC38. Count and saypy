@@ -1,0 +1,19 @@
+def countAndSay(self, n: int) -> str:
+        if n == 1:
+            return "1"
+        # if n > 1: 对结果进行递归
+        elif n > 1:#不止一个数字
+            s = self.countAndSay(n - 1)#那就向前一层递归
+            t = ""#表示结果集
+            i, j = 0, len(s)#i= 0， j表示前一个结果的长度
+            count = 1#开始计数
+            while i < j - 1: #当i没有扫描结束
+                if s[i] == s[i + 1]: #如果i= i+1
+                    count += 1#那么count+1
+                    i += 1#i继续向后扫描一位
+                else:
+                    t = t + str(count) + s[i] #否则的话，t就是上一层的t+有几个数字+是几
+                    count = 1#count恢复到1
+                    i += 1#i+1
+        t = t + str(count) + s[i] #把count 转化为str
+        return t
